@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MediaPlayer.Controller\MediaPlayer.Controller.csproj" />
     <ProjectReference Include="..\MediaPlayer.Core\MediaPlayer.Core.csproj" />
+    <ProjectReference Include="..\MediaPlayer.Service\MediaPlayer.Service.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
