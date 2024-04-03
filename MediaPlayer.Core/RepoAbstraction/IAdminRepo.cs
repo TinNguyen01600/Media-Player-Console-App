@@ -4,7 +4,7 @@ namespace MediaPlayer.Core.RepoAbstraction
 {
     public interface IAdminRepo
     {
-        public void AddUser(params User[] users);
-        public bool RemoveUser(Guid userId);
+        public void AddAdmin(params Admin[] admins);
+        public bool RemoveAdmin(Guid adminId);
     }
 }
