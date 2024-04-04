@@ -13,15 +13,80 @@ namespace MediaPlayer.Infrastructure.Repo
         }
         public Media GetMediaById(Guid mediaId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Media? found = _mediasList.FirstOrDefault(m => m.Id == mediaId);
+                if (found is null) throw new Exception($"Cannot found media file with Id {mediaId}.");
+                return found;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error getting media file by Id. {e}");
+            }
         }
         public bool RemoveMedia(Guid mediaId)
         {
-            return true;
+            try
+            {
+                Media? found = _mediasList.FirstOrDefault(m => m.Id == mediaId);
+                if (found is null) throw new Exception($"Cannot found media file with Id {mediaId}.");
+                _mediasList.Remove(found);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error removing media file by Id. {e}");
+            }
         }
         public void AddMedia(Media media)
         {
-            _mediasList.Add(media);
+            try
+            {
+                _mediasList.Add(media);
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error adding media file. {e}");
+            }
+        }
+        public void ChangeVolume(Guid mediaId, int vol)
+        {
+            try
+            {
+                Media? found = _mediasList.FirstOrDefault(m => m.Id == mediaId);
+                if (found is null) throw new Exception($"Cannot found media file with Id {mediaId}.");
+                found.Volume = vol;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error changing volume of media file. {e}");
+            }
+        }
+        public void ChangeBrightness(Guid mediaId, int bright)
+        {
+            try
+            {
+                Media? found = _mediasList.FirstOrDefault(m => m.Id == mediaId);
+                if (found is null) throw new Exception($"Cannot found media file with Id {mediaId}.");
+                found.Brightness = bright;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error changing brightness of media file. {e}");
+            }
+        }
+        public void ChangeSoundEffect(Guid mediaId, int soundEffect)
+        {
+            try
+            {
+                Media? found = _mediasList.FirstOrDefault(m => m.Id == mediaId);
+                if (found is null) throw new Exception($"Cannot found media file with Id {mediaId}.");
+                found.SoundEffect = soundEffect;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error changing sound effect of media file. {e}");
+            }
         }
     }
 }

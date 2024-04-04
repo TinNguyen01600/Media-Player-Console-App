@@ -14,17 +14,29 @@ namespace MediaPlayer.Service.Implementation
         }
         public Media GetMediaById(Guid mediaId)
         {
-            throw new NotImplementedException();
+            return _mediaRepo.GetMediaById(mediaId);
         }
         public bool RemoveMedia(Guid mediaId)
         {
-            return true;
+            return _mediaRepo.RemoveMedia(mediaId);
         }
         public void AddMedia(MediaType mediaType)
         {
             var mediaFactory = new MediaFactory();
             var media = mediaFactory.Create(mediaType);
-            if (media is not null)  _mediaRepo.AddMedia(media);
+            if (media is not null) _mediaRepo.AddMedia(media);
+        }
+        public void ChangeVolume(Guid mediaId, int vol)
+        {
+            _mediaRepo.ChangeVolume(mediaId, vol);
+        }
+        public void ChangeBrightness(Guid mediaId, int bright)
+        {
+            _mediaRepo.ChangeBrightness(mediaId, bright);
+        }
+        public void ChangeSoundEffect(Guid mediaId, int soundEffect)
+        {
+            _mediaRepo.ChangeSoundEffect(mediaId, soundEffect);
         }
     }
 }

@@ -4,6 +4,9 @@ namespace MediaPlayer.Core.Entity.Media
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
+        public int Volume { get; set; }
+        public int Brightness { get; set; }
+        public int SoundEffect { get; set; }
 
         public abstract new string ToString();
         protected Media(string name)
