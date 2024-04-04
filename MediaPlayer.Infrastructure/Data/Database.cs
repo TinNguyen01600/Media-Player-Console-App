@@ -5,18 +5,14 @@ namespace MediaPlayer.Infrastructure.Data
 {
     public class Database
     {
-        public HashSet<User> _usersList;
-        public HashSet<Admin> _adminsList;
+        public HashSet<Person> _peopleList;
         public HashSet<Media> _mediasList;
         private static Database? _instance;
         private Database()
         {
-            _adminsList = [
+            _peopleList = [
                 new Admin("admin1"),
                 new Admin("admin2"),
-            ];
-
-            _usersList = [
                 new User("user1"),
                 new User("user2"),
                 new User("user3"),
