@@ -25,5 +25,13 @@ namespace MediaPlayer.Service.Implementation
         {
             return _mediaRepo.RemoveMediaFromPlaylist(mediaId, playlistId);
         }
+        public void PlayMedia(Guid mediaId)
+        {
+            _mediaRepo.PlayMedia(mediaId);
+        }
+        public void PauseMedia(Guid mediaId)
+        {
+            _mediaRepo.PauseMedia(mediaId);
+        }
     }
 }

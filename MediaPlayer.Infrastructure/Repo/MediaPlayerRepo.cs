@@ -71,5 +71,31 @@ namespace MediaPlayer.Infrastructure.Repo
                 throw new Exception($"Error removing media to playlist. {e}");
             }
         }
+        public void PlayMedia(Guid mediaId)
+        {
+            try
+            {
+                MediaInPlaylist? foundMedia = _mediasList.FirstOrDefault(c => c.Id == mediaId);
+                if (foundMedia is null) throw new Exception($"Cannot found media with Id {mediaId}");
+                foundMedia.IsPlaying = true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error playing media. {e}");
+            }
+        }
+        public void PauseMedia(Guid mediaId)
+        {
+            try
+            {
+                MediaInPlaylist? foundMedia = _mediasList.FirstOrDefault(c => c.Id == mediaId);
+                if (foundMedia is null) throw new Exception($"Cannot found media with Id {mediaId}");
+                foundMedia.IsPlaying = false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error pausing media. {e}");
+            }
+        }
     }
 }

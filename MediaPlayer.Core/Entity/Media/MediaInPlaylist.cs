@@ -7,6 +7,7 @@ namespace MediaPlayer.Core.Entity.Media
 {
     public class MediaInPlaylist : Media
     {
+        public bool IsPlaying { get; set; }
         public MediaInPlaylist(string title) : base(title)
         {
             Title = title;

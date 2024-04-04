@@ -7,7 +7,8 @@ namespace MediaPlayer.Infrastructure.Data
     {
         public HashSet<Person> _peopleList;
         public HashSet<Media> _mediasList;
-        private static Database? _instance;
+        private static Database _instance = new Database();
+        public static Database Instance => _instance;
         private Database()
         {
             _peopleList = [
